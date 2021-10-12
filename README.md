@@ -1,6 +1,6 @@
-#AAU Learning_Factory - Data Driven Decision
+# AAU Learning_Factory - Data Driven Decision
 
-![Communincation](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)
+![Communincation](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/communication.png)
 
 **Tested Node-red Version**
 - 2.0.6

@@ -1,0 +1,3733 @@
+[
+    {
+        "id": "e8c85f76fa7fc911",
+        "type": "subflow",
+        "name": "STPLC08 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC08(manual packing station).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1440,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "c9986e61e5305d6e",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1440,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "4474ebefd1b332d2",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 740,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "9c4863bb00c92c73",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1240,
+            "y": 200,
+            "wires": [
+                {
+                    "id": "0fb4cdca7809dce5",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "3642bbdbb76118bc",
+        "type": "OpcUa-Client",
+        "z": "e8c85f76fa7fc911",
+        "endpoint": "553b83f1.8ede4c",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 1090,
+        "y": 60,
+        "wires": [
+            [
+                "c9986e61e5305d6e"
+            ]
+        ]
+    },
+    {
+        "id": "2f4ff127cfbd4057",
+        "type": "OpcUa-Item",
+        "z": "e8c85f76fa7fc911",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 920,
+        "y": 60,
+        "wires": [
+            [
+                "3642bbdbb76118bc"
+            ]
+        ]
+    },
+    {
+        "id": "43d29400d58dd1fa",
+        "type": "inject",
+        "z": "e8c85f76fa7fc911",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "436cb46c380979e9"
+            ]
+        ]
+    },
+    {
+        "id": "d3141eee03ea5090",
+        "type": "OpcUa-Client",
+        "z": "e8c85f76fa7fc911",
+        "endpoint": "553b83f1.8ede4c",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 1080,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5411bcc72a20c67f",
+        "type": "OpcUa-Item",
+        "z": "e8c85f76fa7fc911",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 920,
+        "y": 100,
+        "wires": [
+            [
+                "d3141eee03ea5090"
+            ]
+        ]
+    },
+    {
+        "id": "aeafc6d489189f06",
+        "type": "delay",
+        "z": "e8c85f76fa7fc911",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 740,
+        "y": 60,
+        "wires": [
+            [
+                "2f4ff127cfbd4057"
+            ]
+        ]
+    },
+    {
+        "id": "9c4863bb00c92c73",
+        "type": "OpcUa-Client",
+        "z": "e8c85f76fa7fc911",
+        "endpoint": "553b83f1.8ede4c",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 600,
+        "y": 200,
+        "wires": [
+            [
+                "7e93aecf36de7341"
+            ]
+        ]
+    },
+    {
+        "id": "436cb46c380979e9",
+        "type": "OpcUa-Item",
+        "z": "e8c85f76fa7fc911",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "9c4863bb00c92c73"
+            ]
+        ]
+    },
+    {
+        "id": "7e93aecf36de7341",
+        "type": "function",
+        "z": "e8c85f76fa7fc911",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 560,
+        "y": 80,
+        "wires": [
+            [
+                "aeafc6d489189f06",
+                "5411bcc72a20c67f",
+                "338ed6d5d4fee790"
+            ]
+        ]
+    },
+    {
+        "id": "0fb4cdca7809dce5",
+        "type": "status",
+        "z": "e8c85f76fa7fc911",
+        "name": "",
+        "scope": null,
+        "x": 1120,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "338ed6d5d4fee790",
+        "type": "OpcUa-Item",
+        "z": "e8c85f76fa7fc911",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 920,
+        "y": 140,
+        "wires": [
+            [
+                "d3a653f4c053c260"
+            ]
+        ]
+    },
+    {
+        "id": "d3a653f4c053c260",
+        "type": "OpcUa-Client",
+        "z": "e8c85f76fa7fc911",
+        "endpoint": "553b83f1.8ede4c",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 1100,
+        "y": 140,
+        "wires": [
+            [
+                "4474ebefd1b332d2"
+            ]
+        ]
+    },
+    {
+        "id": "c9986e61e5305d6e",
+        "type": "function",
+        "z": "e8c85f76fa7fc911",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1300,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4474ebefd1b332d2",
+        "type": "function",
+        "z": "e8c85f76fa7fc911",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1300,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d06774c6e0faac2b",
+        "type": "subflow",
+        "name": "STPLC01 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC01(branch module).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1240,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "babe4e0eb6a295d0",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1240,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "f85a8b245c7aa789",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 580,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "d55cbbd6cb13415c",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1080,
+            "y": 360,
+            "wires": [
+                {
+                    "id": "5cb9770466aabea4",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "6ca26bbe45242deb",
+        "type": "OpcUa-Client",
+        "z": "d06774c6e0faac2b",
+        "endpoint": "fea3718e48f17629",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 930,
+        "y": 220,
+        "wires": [
+            [
+                "babe4e0eb6a295d0"
+            ]
+        ]
+    },
+    {
+        "id": "326eac0a505bf372",
+        "type": "OpcUa-Item",
+        "z": "d06774c6e0faac2b",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 760,
+        "y": 220,
+        "wires": [
+            [
+                "6ca26bbe45242deb"
+            ]
+        ]
+    },
+    {
+        "id": "bd0b94c9a6aa9d0b",
+        "type": "inject",
+        "z": "d06774c6e0faac2b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 360,
+        "wires": [
+            [
+                "52cc1a0d8d6bbec5"
+            ]
+        ]
+    },
+    {
+        "id": "04c93ca604bdaa9d",
+        "type": "OpcUa-Client",
+        "z": "d06774c6e0faac2b",
+        "endpoint": "fea3718e48f17629",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 920,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "90c0f7f4ac822642",
+        "type": "OpcUa-Item",
+        "z": "d06774c6e0faac2b",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "04c93ca604bdaa9d"
+            ]
+        ]
+    },
+    {
+        "id": "37fb1f22335bb2ab",
+        "type": "delay",
+        "z": "d06774c6e0faac2b",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "326eac0a505bf372"
+            ]
+        ]
+    },
+    {
+        "id": "d55cbbd6cb13415c",
+        "type": "OpcUa-Client",
+        "z": "d06774c6e0faac2b",
+        "endpoint": "fea3718e48f17629",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "b4b8b9e1f6e0a3e6"
+            ]
+        ]
+    },
+    {
+        "id": "52cc1a0d8d6bbec5",
+        "type": "OpcUa-Item",
+        "z": "d06774c6e0faac2b",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "d55cbbd6cb13415c"
+            ]
+        ]
+    },
+    {
+        "id": "b4b8b9e1f6e0a3e6",
+        "type": "function",
+        "z": "d06774c6e0faac2b",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "37fb1f22335bb2ab",
+                "90c0f7f4ac822642",
+                "2d4a5137bebbdb41"
+            ]
+        ]
+    },
+    {
+        "id": "5cb9770466aabea4",
+        "type": "status",
+        "z": "d06774c6e0faac2b",
+        "name": "",
+        "scope": null,
+        "x": 960,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2d4a5137bebbdb41",
+        "type": "OpcUa-Item",
+        "z": "d06774c6e0faac2b",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 760,
+        "y": 300,
+        "wires": [
+            [
+                "9e675dd660679b56"
+            ]
+        ]
+    },
+    {
+        "id": "9e675dd660679b56",
+        "type": "OpcUa-Client",
+        "z": "d06774c6e0faac2b",
+        "endpoint": "fea3718e48f17629",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "f85a8b245c7aa789"
+            ]
+        ]
+    },
+    {
+        "id": "babe4e0eb6a295d0",
+        "type": "function",
+        "z": "d06774c6e0faac2b",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f85a8b245c7aa789",
+        "type": "function",
+        "z": "d06774c6e0faac2b",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fea3718e48f17629",
+        "type": "OpcUa-Endpoint",
+        "z": "d06774c6e0faac2b",
+        "endpoint": "opc.tcp://172.20.8.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "74774fbe76e163ac",
+        "type": "subflow",
+        "name": "STPLC10 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC10(Bottom cover feeder).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1240,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "8aec0ec5156a3576",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1240,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "f8136d5dc7f31fa1",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 580,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "f5263c14f6c47a22",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1080,
+            "y": 360,
+            "wires": [
+                {
+                    "id": "f69ed4624de15dd1",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "ec58b38497cffc47",
+        "type": "OpcUa-Client",
+        "z": "74774fbe76e163ac",
+        "endpoint": "3bdda5d5d36cab49",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 930,
+        "y": 220,
+        "wires": [
+            [
+                "8aec0ec5156a3576"
+            ]
+        ]
+    },
+    {
+        "id": "db890547acb6d794",
+        "type": "OpcUa-Item",
+        "z": "74774fbe76e163ac",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 760,
+        "y": 220,
+        "wires": [
+            [
+                "ec58b38497cffc47"
+            ]
+        ]
+    },
+    {
+        "id": "812f694075af178f",
+        "type": "inject",
+        "z": "74774fbe76e163ac",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 360,
+        "wires": [
+            [
+                "01228904cc7278c3"
+            ]
+        ]
+    },
+    {
+        "id": "cd0895b59083ddc0",
+        "type": "OpcUa-Client",
+        "z": "74774fbe76e163ac",
+        "endpoint": "3bdda5d5d36cab49",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 920,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "903d8896c9a6c6a3",
+        "type": "OpcUa-Item",
+        "z": "74774fbe76e163ac",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "cd0895b59083ddc0"
+            ]
+        ]
+    },
+    {
+        "id": "f3708fb8d0a71915",
+        "type": "delay",
+        "z": "74774fbe76e163ac",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "db890547acb6d794"
+            ]
+        ]
+    },
+    {
+        "id": "f5263c14f6c47a22",
+        "type": "OpcUa-Client",
+        "z": "74774fbe76e163ac",
+        "endpoint": "3bdda5d5d36cab49",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "361ca61d3a5f7d07"
+            ]
+        ]
+    },
+    {
+        "id": "01228904cc7278c3",
+        "type": "OpcUa-Item",
+        "z": "74774fbe76e163ac",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "f5263c14f6c47a22"
+            ]
+        ]
+    },
+    {
+        "id": "361ca61d3a5f7d07",
+        "type": "function",
+        "z": "74774fbe76e163ac",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "f3708fb8d0a71915",
+                "903d8896c9a6c6a3",
+                "163221202b139f15"
+            ]
+        ]
+    },
+    {
+        "id": "f69ed4624de15dd1",
+        "type": "status",
+        "z": "74774fbe76e163ac",
+        "name": "",
+        "scope": null,
+        "x": 960,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "163221202b139f15",
+        "type": "OpcUa-Item",
+        "z": "74774fbe76e163ac",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 760,
+        "y": 300,
+        "wires": [
+            [
+                "2c22276e2c3d7f27"
+            ]
+        ]
+    },
+    {
+        "id": "2c22276e2c3d7f27",
+        "type": "OpcUa-Client",
+        "z": "74774fbe76e163ac",
+        "endpoint": "3bdda5d5d36cab49",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "f8136d5dc7f31fa1"
+            ]
+        ]
+    },
+    {
+        "id": "8aec0ec5156a3576",
+        "type": "function",
+        "z": "74774fbe76e163ac",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8136d5dc7f31fa1",
+        "type": "function",
+        "z": "74774fbe76e163ac",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bdda5d5d36cab49",
+        "type": "OpcUa-Endpoint",
+        "z": "74774fbe76e163ac",
+        "endpoint": "opc.tcp://172.20.3.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "f2059a74997b27a5",
+        "type": "subflow",
+        "name": "STPLC14 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC14(robot cell/PCB mounting).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1240,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "16cd50a33c08f902",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1240,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "26195de4f52b6e03",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 580,
+                "y": 320,
+                "wires": [
+                    {
+                        "id": "62c301c3443f762e",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1080,
+            "y": 320,
+            "wires": [
+                {
+                    "id": "774a65866c7f47bd",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "17512d2b4bfc3853",
+        "type": "OpcUa-Client",
+        "z": "f2059a74997b27a5",
+        "endpoint": "8b28b76edb7df982",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "16cd50a33c08f902"
+            ]
+        ]
+    },
+    {
+        "id": "4d28f31032ec7732",
+        "type": "OpcUa-Item",
+        "z": "f2059a74997b27a5",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 760,
+        "y": 180,
+        "wires": [
+            [
+                "17512d2b4bfc3853"
+            ]
+        ]
+    },
+    {
+        "id": "64c738739ab5ed0d",
+        "type": "inject",
+        "z": "f2059a74997b27a5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 320,
+        "wires": [
+            [
+                "9d68c6eb4042cc09"
+            ]
+        ]
+    },
+    {
+        "id": "95ce9a8b1673a2a9",
+        "type": "OpcUa-Client",
+        "z": "f2059a74997b27a5",
+        "endpoint": "8b28b76edb7df982",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 920,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd16d67e04ab8275",
+        "type": "OpcUa-Item",
+        "z": "f2059a74997b27a5",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 760,
+        "y": 220,
+        "wires": [
+            [
+                "95ce9a8b1673a2a9"
+            ]
+        ]
+    },
+    {
+        "id": "00d490301682991c",
+        "type": "delay",
+        "z": "f2059a74997b27a5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "4d28f31032ec7732"
+            ]
+        ]
+    },
+    {
+        "id": "62c301c3443f762e",
+        "type": "OpcUa-Client",
+        "z": "f2059a74997b27a5",
+        "endpoint": "8b28b76edb7df982",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "9b3ff9e221479507"
+            ]
+        ]
+    },
+    {
+        "id": "9d68c6eb4042cc09",
+        "type": "OpcUa-Item",
+        "z": "f2059a74997b27a5",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "62c301c3443f762e"
+            ]
+        ]
+    },
+    {
+        "id": "9b3ff9e221479507",
+        "type": "function",
+        "z": "f2059a74997b27a5",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "00d490301682991c",
+                "fd16d67e04ab8275",
+                "61205f02b8278ece"
+            ]
+        ]
+    },
+    {
+        "id": "774a65866c7f47bd",
+        "type": "status",
+        "z": "f2059a74997b27a5",
+        "name": "",
+        "scope": null,
+        "x": 960,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61205f02b8278ece",
+        "type": "OpcUa-Item",
+        "z": "f2059a74997b27a5",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "85a58d65f7c8f66f"
+            ]
+        ]
+    },
+    {
+        "id": "85a58d65f7c8f66f",
+        "type": "OpcUa-Client",
+        "z": "f2059a74997b27a5",
+        "endpoint": "8b28b76edb7df982",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 940,
+        "y": 260,
+        "wires": [
+            [
+                "26195de4f52b6e03"
+            ]
+        ]
+    },
+    {
+        "id": "16cd50a33c08f902",
+        "type": "function",
+        "z": "f2059a74997b27a5",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "26195de4f52b6e03",
+        "type": "function",
+        "z": "f2059a74997b27a5",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b28b76edb7df982",
+        "type": "OpcUa-Endpoint",
+        "z": "f2059a74997b27a5",
+        "endpoint": "opc.tcp://172.20.4.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "a67404fb8e157ca0",
+        "type": "subflow",
+        "name": "STPLC13 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC13(quality inspection).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1500,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "145f02640b90a63b",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1500,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "cb36ee02b7e52f26",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 860,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "d87c8f39e78ccfd1",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1360,
+            "y": 360,
+            "wires": [
+                {
+                    "id": "8d9e080198cc8083",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "3104f9681ec61ace",
+        "type": "OpcUa-Client",
+        "z": "a67404fb8e157ca0",
+        "endpoint": "a3a70775417dad6f",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 1190,
+        "y": 220,
+        "wires": [
+            [
+                "145f02640b90a63b"
+            ]
+        ]
+    },
+    {
+        "id": "de4f53446dbaa5ad",
+        "type": "OpcUa-Item",
+        "z": "a67404fb8e157ca0",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 1020,
+        "y": 220,
+        "wires": [
+            [
+                "3104f9681ec61ace"
+            ]
+        ]
+    },
+    {
+        "id": "5ff1b20984177345",
+        "type": "inject",
+        "z": "a67404fb8e157ca0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "8b5142357c7ce92b"
+            ]
+        ]
+    },
+    {
+        "id": "37c498bb80e7ae98",
+        "type": "OpcUa-Client",
+        "z": "a67404fb8e157ca0",
+        "endpoint": "a3a70775417dad6f",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 1180,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2333998139050be",
+        "type": "OpcUa-Item",
+        "z": "a67404fb8e157ca0",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 1020,
+        "y": 260,
+        "wires": [
+            [
+                "37c498bb80e7ae98"
+            ]
+        ]
+    },
+    {
+        "id": "bfaa3593f28c041e",
+        "type": "delay",
+        "z": "a67404fb8e157ca0",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 840,
+        "y": 220,
+        "wires": [
+            [
+                "de4f53446dbaa5ad"
+            ]
+        ]
+    },
+    {
+        "id": "d87c8f39e78ccfd1",
+        "type": "OpcUa-Client",
+        "z": "a67404fb8e157ca0",
+        "endpoint": "a3a70775417dad6f",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 700,
+        "y": 360,
+        "wires": [
+            [
+                "fc73d565ac2c4bb9"
+            ]
+        ]
+    },
+    {
+        "id": "8b5142357c7ce92b",
+        "type": "OpcUa-Item",
+        "z": "a67404fb8e157ca0",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 510,
+        "y": 360,
+        "wires": [
+            [
+                "d87c8f39e78ccfd1"
+            ]
+        ]
+    },
+    {
+        "id": "fc73d565ac2c4bb9",
+        "type": "function",
+        "z": "a67404fb8e157ca0",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 240,
+        "wires": [
+            [
+                "bfaa3593f28c041e",
+                "b2333998139050be",
+                "43febb96f55c7259"
+            ]
+        ]
+    },
+    {
+        "id": "8d9e080198cc8083",
+        "type": "status",
+        "z": "a67404fb8e157ca0",
+        "name": "",
+        "scope": null,
+        "x": 1220,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43febb96f55c7259",
+        "type": "OpcUa-Item",
+        "z": "a67404fb8e157ca0",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 1020,
+        "y": 300,
+        "wires": [
+            [
+                "1207beb97fc6d02e"
+            ]
+        ]
+    },
+    {
+        "id": "1207beb97fc6d02e",
+        "type": "OpcUa-Client",
+        "z": "a67404fb8e157ca0",
+        "endpoint": "a3a70775417dad6f",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 1200,
+        "y": 300,
+        "wires": [
+            [
+                "cb36ee02b7e52f26"
+            ]
+        ]
+    },
+    {
+        "id": "145f02640b90a63b",
+        "type": "function",
+        "z": "a67404fb8e157ca0",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1400,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb36ee02b7e52f26",
+        "type": "function",
+        "z": "a67404fb8e157ca0",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1400,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3a70775417dad6f",
+        "type": "OpcUa-Endpoint",
+        "z": "a67404fb8e157ca0",
+        "endpoint": "opc.tcp://172.20.5.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "c2ae2734c58cb312",
+        "type": "subflow",
+        "name": "STPLC12 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC12(drilling station).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1240,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "9d916d1a8de322aa",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1240,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "99b260e818d20bb5",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 600,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "5fcc9d0e5a3dbaf4",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1080,
+            "y": 300,
+            "wires": [
+                {
+                    "id": "e0053058ce2fe4ce",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "4d07640d10da423d",
+        "type": "OpcUa-Client",
+        "z": "c2ae2734c58cb312",
+        "endpoint": "1d4581e673d2a4c0",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 930,
+        "y": 160,
+        "wires": [
+            [
+                "9d916d1a8de322aa"
+            ]
+        ]
+    },
+    {
+        "id": "bd88294df998b8a4",
+        "type": "OpcUa-Item",
+        "z": "c2ae2734c58cb312",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 760,
+        "y": 160,
+        "wires": [
+            [
+                "4d07640d10da423d"
+            ]
+        ]
+    },
+    {
+        "id": "a8bd19bff379c2c8",
+        "type": "inject",
+        "z": "c2ae2734c58cb312",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 300,
+        "wires": [
+            [
+                "d554e7c7ae15d9f6"
+            ]
+        ]
+    },
+    {
+        "id": "f8c8e24bfd4ce29a",
+        "type": "OpcUa-Client",
+        "z": "c2ae2734c58cb312",
+        "endpoint": "1d4581e673d2a4c0",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 920,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "06ef652b5d4902d0",
+        "type": "OpcUa-Item",
+        "z": "c2ae2734c58cb312",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 760,
+        "y": 200,
+        "wires": [
+            [
+                "f8c8e24bfd4ce29a"
+            ]
+        ]
+    },
+    {
+        "id": "02f1ee65e0d056a2",
+        "type": "delay",
+        "z": "c2ae2734c58cb312",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 580,
+        "y": 160,
+        "wires": [
+            [
+                "bd88294df998b8a4"
+            ]
+        ]
+    },
+    {
+        "id": "5fcc9d0e5a3dbaf4",
+        "type": "OpcUa-Client",
+        "z": "c2ae2734c58cb312",
+        "endpoint": "1d4581e673d2a4c0",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "1dfa224927b56526"
+            ]
+        ]
+    },
+    {
+        "id": "d554e7c7ae15d9f6",
+        "type": "OpcUa-Item",
+        "z": "c2ae2734c58cb312",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 250,
+        "y": 300,
+        "wires": [
+            [
+                "5fcc9d0e5a3dbaf4"
+            ]
+        ]
+    },
+    {
+        "id": "1dfa224927b56526",
+        "type": "function",
+        "z": "c2ae2734c58cb312",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "02f1ee65e0d056a2",
+                "06ef652b5d4902d0",
+                "4d9de8dfbc4d17e1"
+            ]
+        ]
+    },
+    {
+        "id": "e0053058ce2fe4ce",
+        "type": "status",
+        "z": "c2ae2734c58cb312",
+        "name": "",
+        "scope": null,
+        "x": 960,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d9de8dfbc4d17e1",
+        "type": "OpcUa-Item",
+        "z": "c2ae2734c58cb312",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 760,
+        "y": 240,
+        "wires": [
+            [
+                "38d26d33c59f54dc"
+            ]
+        ]
+    },
+    {
+        "id": "38d26d33c59f54dc",
+        "type": "OpcUa-Client",
+        "z": "c2ae2734c58cb312",
+        "endpoint": "1d4581e673d2a4c0",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 940,
+        "y": 240,
+        "wires": [
+            [
+                "99b260e818d20bb5"
+            ]
+        ]
+    },
+    {
+        "id": "9d916d1a8de322aa",
+        "type": "function",
+        "z": "c2ae2734c58cb312",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99b260e818d20bb5",
+        "type": "function",
+        "z": "c2ae2734c58cb312",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1140,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1d4581e673d2a4c0",
+        "type": "OpcUa-Endpoint",
+        "z": "c2ae2734c58cb312",
+        "endpoint": "opc.tcp://172.20.16.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "c1439db024be9167",
+        "type": "subflow",
+        "name": "STPLC11 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC11(top cover mount).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1540,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "531916bdf2b44357",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1540,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "3c2f3e09784ef86a",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 880,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "06cc41e70a6ba596",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1360,
+            "y": 300,
+            "wires": [
+                {
+                    "id": "b28deef6eb086658",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "3c41d1cfa61e4d7a",
+        "type": "OpcUa-Client",
+        "z": "c1439db024be9167",
+        "endpoint": "b4d271021fa6d3df",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 1210,
+        "y": 160,
+        "wires": [
+            [
+                "531916bdf2b44357"
+            ]
+        ]
+    },
+    {
+        "id": "354a4cc07a1e4c4e",
+        "type": "OpcUa-Item",
+        "z": "c1439db024be9167",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 1040,
+        "y": 160,
+        "wires": [
+            [
+                "3c41d1cfa61e4d7a"
+            ]
+        ]
+    },
+    {
+        "id": "9276d3f887323b14",
+        "type": "inject",
+        "z": "c1439db024be9167",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "a2274306ec04ef86"
+            ]
+        ]
+    },
+    {
+        "id": "8177f326d2a32d3e",
+        "type": "OpcUa-Client",
+        "z": "c1439db024be9167",
+        "endpoint": "b4d271021fa6d3df",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 1200,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a4f7f6b17570b59",
+        "type": "OpcUa-Item",
+        "z": "c1439db024be9167",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 1040,
+        "y": 200,
+        "wires": [
+            [
+                "8177f326d2a32d3e"
+            ]
+        ]
+    },
+    {
+        "id": "dca16a5fb44848b3",
+        "type": "delay",
+        "z": "c1439db024be9167",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 860,
+        "y": 160,
+        "wires": [
+            [
+                "354a4cc07a1e4c4e"
+            ]
+        ]
+    },
+    {
+        "id": "06cc41e70a6ba596",
+        "type": "OpcUa-Client",
+        "z": "c1439db024be9167",
+        "endpoint": "b4d271021fa6d3df",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "2ca21a96f1f1869e"
+            ]
+        ]
+    },
+    {
+        "id": "a2274306ec04ef86",
+        "type": "OpcUa-Item",
+        "z": "c1439db024be9167",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "06cc41e70a6ba596"
+            ]
+        ]
+    },
+    {
+        "id": "2ca21a96f1f1869e",
+        "type": "function",
+        "z": "c1439db024be9167",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "dca16a5fb44848b3",
+                "8a4f7f6b17570b59",
+                "048fed1e55f936f4"
+            ]
+        ]
+    },
+    {
+        "id": "b28deef6eb086658",
+        "type": "status",
+        "z": "c1439db024be9167",
+        "name": "",
+        "scope": null,
+        "x": 1240,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "048fed1e55f936f4",
+        "type": "OpcUa-Item",
+        "z": "c1439db024be9167",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 1040,
+        "y": 240,
+        "wires": [
+            [
+                "b43dcaef85a13c06"
+            ]
+        ]
+    },
+    {
+        "id": "b43dcaef85a13c06",
+        "type": "OpcUa-Client",
+        "z": "c1439db024be9167",
+        "endpoint": "b4d271021fa6d3df",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 1220,
+        "y": 240,
+        "wires": [
+            [
+                "3c2f3e09784ef86a"
+            ]
+        ]
+    },
+    {
+        "id": "531916bdf2b44357",
+        "type": "function",
+        "z": "c1439db024be9167",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1420,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c2f3e09784ef86a",
+        "type": "function",
+        "z": "c1439db024be9167",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1420,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4d271021fa6d3df",
+        "type": "OpcUa-Endpoint",
+        "z": "c1439db024be9167",
+        "endpoint": "opc.tcp://172.20.11.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "3e51b262f6b84786",
+        "type": "subflow",
+        "name": "STPLC09 (2)",
+        "info": "This node is used for extracting information from the Festo cp factory. This specific type is used for STPLC09(manual handling station).",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 1440,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "d845fce7818272b7",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1440,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "8eb7f7fd05111404",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 780,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "920a4633fc532793",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "status": {
+            "x": 1260,
+            "y": 300,
+            "wires": [
+                {
+                    "id": "a14cf9df54c4c2f1",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "c1132e3358ca1a88",
+        "type": "OpcUa-Client",
+        "z": "3e51b262f6b84786",
+        "endpoint": "ad1813fe.06fc8",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "SUBSCRIBE",
+        "x": 1130,
+        "y": 160,
+        "wires": [
+            [
+                "d845fce7818272b7"
+            ]
+        ]
+    },
+    {
+        "id": "046de5bbbbbaa7c1",
+        "type": "OpcUa-Item",
+        "z": "3e51b262f6b84786",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stRfidData.uiCarrierID",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "",
+        "x": 960,
+        "y": 160,
+        "wires": [
+            [
+                "c1132e3358ca1a88"
+            ]
+        ]
+    },
+    {
+        "id": "d1a9780ae0fd4427",
+        "type": "inject",
+        "z": "3e51b262f6b84786",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "3a76e1d413eeb348"
+            ]
+        ]
+    },
+    {
+        "id": "bdef0afbd58b85aa",
+        "type": "OpcUa-Client",
+        "z": "3e51b262f6b84786",
+        "endpoint": "ad1813fe.06fc8",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "WRITE",
+        "x": 1120,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9783381ef1f619e5",
+        "type": "OpcUa-Item",
+        "z": "3e51b262f6b84786",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.stManualControl.xReadRfid",
+        "datatype": "Boolean",
+        "value": "True",
+        "name": "",
+        "x": 960,
+        "y": 200,
+        "wires": [
+            [
+                "bdef0afbd58b85aa"
+            ]
+        ]
+    },
+    {
+        "id": "6380f79789c211b9",
+        "type": "delay",
+        "z": "3e51b262f6b84786",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 780,
+        "y": 160,
+        "wires": [
+            [
+                "046de5bbbbbaa7c1"
+            ]
+        ]
+    },
+    {
+        "id": "920a4633fc532793",
+        "type": "OpcUa-Client",
+        "z": "3e51b262f6b84786",
+        "endpoint": "ad1813fe.06fc8",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "b1495a1dddb25d22"
+            ]
+        ]
+    },
+    {
+        "id": "3a76e1d413eeb348",
+        "type": "OpcUa-Item",
+        "z": "3e51b262f6b84786",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.xCarrierAvailable",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "CheckStopper",
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "920a4633fc532793"
+            ]
+        ]
+    },
+    {
+        "id": "b1495a1dddb25d22",
+        "type": "function",
+        "z": "3e51b262f6b84786",
+        "name": "CheckForPallet",
+        "func": "if(msg.payload == true){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 600,
+        "y": 180,
+        "wires": [
+            [
+                "6380f79789c211b9",
+                "9783381ef1f619e5",
+                "da178d7f9253792b"
+            ]
+        ]
+    },
+    {
+        "id": "a14cf9df54c4c2f1",
+        "type": "status",
+        "z": "3e51b262f6b84786",
+        "name": "",
+        "scope": null,
+        "x": 1140,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da178d7f9253792b",
+        "type": "OpcUa-Item",
+        "z": "3e51b262f6b84786",
+        "item": "ns=2;s=|var|CECC-LK.Application.FBs.stpStopper1.stpStopper.cpfssStopper.uiMovementCounter",
+        "datatype": "UInt16",
+        "value": "",
+        "name": "PalletCounter",
+        "x": 960,
+        "y": 240,
+        "wires": [
+            [
+                "6378d7c49395f7f3"
+            ]
+        ]
+    },
+    {
+        "id": "6378d7c49395f7f3",
+        "type": "OpcUa-Client",
+        "z": "3e51b262f6b84786",
+        "endpoint": "553b83f1.8ede4c",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 1140,
+        "y": 240,
+        "wires": [
+            [
+                "8eb7f7fd05111404"
+            ]
+        ]
+    },
+    {
+        "id": "8eb7f7fd05111404",
+        "type": "function",
+        "z": "3e51b262f6b84786",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1320,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d845fce7818272b7",
+        "type": "function",
+        "z": "3e51b262f6b84786",
+        "name": "Sort msgs",
+        "func": "\nif (msg.payload != context.get('hold')){\n    context.set('hold', msg.payload)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\ncontext.set('hold', 0)",
+        "finalize": "",
+        "x": 1320,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad1813fe.06fc8",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://172.20.13.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "553b83f1.8ede4c",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://172.20.1.1:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "a445b80fdd829696",
+        "type": "tab",
+        "label": "RPI Flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "0980174ea3cd5646",
+        "type": "group",
+        "z": "a445b80fdd829696",
+        "name": "ESP32 Temperature sensor to InfluxDB",
+        "style": {
+            "fill": "#ffefbf",
+            "label": true
+        },
+        "nodes": [
+            "046b3b989469d53b",
+            "2a30a24b1d46d694",
+            "b30a971a74b70552",
+            "70d5e83525e25692"
+        ],
+        "x": 54,
+        "y": 199,
+        "w": 602,
+        "h": 122
+    },
+    {
+        "id": "18c8ecb6cdaab442",
+        "type": "group",
+        "z": "a445b80fdd829696",
+        "name": "ESP32 Humidity sensor to InfluxDB",
+        "style": {
+            "fill": "#ffffbf",
+            "label": true
+        },
+        "nodes": [
+            "23530e68aa0a35ee",
+            "45cbf30ff3ae4c84",
+            "e9a6073c06690901",
+            "23068fc0aec1e4df"
+        ],
+        "x": 54,
+        "y": 339,
+        "w": 602,
+        "h": 122
+    },
+    {
+        "id": "26eeb8e8da63da39",
+        "type": "group",
+        "z": "a445b80fdd829696",
+        "name": "ESP32 Detection sensor to InfluxDB",
+        "style": {
+            "fill": "#e3f3d3",
+            "label": true
+        },
+        "nodes": [
+            "d770c8bfe6ebc8c3",
+            "9f7556e0da8f410a",
+            "f916466b08b8a22f",
+            "6f9a568cac0a3e73"
+        ],
+        "x": 54,
+        "y": 479,
+        "w": 602,
+        "h": 122
+    },
+    {
+        "id": "404d7de638e1dcf5",
+        "type": "group",
+        "z": "a445b80fdd829696",
+        "name": "ESP32 Light sensor to InfluxDB",
+        "style": {
+            "label": true,
+            "color": "#999999",
+            "fill": "#ffbfbf"
+        },
+        "nodes": [
+            "db8e47390febbd78",
+            "466a41d7336aa0d3",
+            "6b6ac13071e097a8",
+            "337615e28fd5f055"
+        ],
+        "x": 54,
+        "y": 59,
+        "w": 602,
+        "h": 122
+    },
+    {
+        "id": "4d6d76c20d0c6e7a",
+        "type": "group",
+        "z": "a445b80fdd829696",
+        "name": "ESP32 Sound sensor to InfluxDB",
+        "style": {
+            "label": true,
+            "color": "#999999",
+            "fill": "#bfc7d7"
+        },
+        "nodes": [
+            "889938db2021182b",
+            "db4db57a791460f5",
+            "ca47443d5d086f0a",
+            "f513e6aed85c8c04"
+        ],
+        "x": 54,
+        "y": 619,
+        "w": 592,
+        "h": 122
+    },
+    {
+        "id": "9e4642ac8203ba7d",
+        "type": "group",
+        "z": "a445b80fdd829696",
+        "name": "ESP32 IMUsensor to InfluxDB",
+        "style": {
+            "fill": "#bfdbef",
+            "label": true
+        },
+        "nodes": [
+            "df09ebed9f31bc4b",
+            "64349ef83f527d59",
+            "0e931ddad168b60a",
+            "c18845d7ed876984",
+            "c64206b8a3995c14",
+            "0c89dfbd8b477b4f",
+            "ab5f3b19854339de",
+            "38f7be8c94068bea",
+            "3d47ebbe9584a186",
+            "0e5005bc49e917fd"
+        ],
+        "x": 674,
+        "y": 59,
+        "w": 572,
+        "h": 302
+    },
+    {
+        "id": "a962e16c7209a6b4",
+        "type": "group",
+        "z": "a445b80fdd829696",
+        "name": "Festo PLC's to InfluxDB",
+        "style": {
+            "fill": "#dbcbe7",
+            "label": true
+        },
+        "nodes": [
+            "b0c34c9b6f1ffeb7",
+            "04137e0fde03f98a",
+            "cd2b6f9aab5ac08e",
+            "e7d11522bfcd3ed2",
+            "959da9987cde0b77",
+            "6906600920f4e413",
+            "6dfc6efd4dc015cb",
+            "cf4a91c942f4f367",
+            "508c755bbea81b0d",
+            "babae7b885e47f7a",
+            "a4e3e23d7edaf4ec",
+            "2953e33430855587",
+            "0bbdacfa589c2789",
+            "17af30d6323a6a4a",
+            "cc1bd38d165ed7c5",
+            "d78f95a01c2e804d"
+        ],
+        "x": 674,
+        "y": 371.5,
+        "w": 572,
+        "h": 517
+    },
+    {
+        "id": "db8e47390febbd78",
+        "type": "mqtt in",
+        "z": "a445b80fdd829696",
+        "g": "404d7de638e1dcf5",
+        "name": "",
+        "topic": "esp32/lightsensor",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d80dae17.2efaf8",
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "6b6ac13071e097a8",
+                "337615e28fd5f055"
+            ]
+        ]
+    },
+    {
+        "id": "466a41d7336aa0d3",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "404d7de638e1dcf5",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "light",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 570,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6b6ac13071e097a8",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "404d7de638e1dcf5",
+        "name": "adding location",
+        "func": "msg.payload = {\n    location: 'STPLC_01',\n    value: msg.payload\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "466a41d7336aa0d3"
+            ]
+        ]
+    },
+    {
+        "id": "337615e28fd5f055",
+        "type": "debug",
+        "z": "a445b80fdd829696",
+        "g": "404d7de638e1dcf5",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "046b3b989469d53b",
+        "type": "mqtt in",
+        "z": "a445b80fdd829696",
+        "g": "0980174ea3cd5646",
+        "name": "",
+        "topic": "esp32/temperature",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d80dae17.2efaf8",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "b30a971a74b70552",
+                "70d5e83525e25692"
+            ]
+        ]
+    },
+    {
+        "id": "2a30a24b1d46d694",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "0980174ea3cd5646",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 570,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b30a971a74b70552",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "0980174ea3cd5646",
+        "name": "adding location",
+        "func": "msg.payload = {\n    location: 'STPLC_01',\n    value: msg.payload\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "2a30a24b1d46d694"
+            ]
+        ]
+    },
+    {
+        "id": "70d5e83525e25692",
+        "type": "debug",
+        "z": "a445b80fdd829696",
+        "g": "0980174ea3cd5646",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "23530e68aa0a35ee",
+        "type": "mqtt in",
+        "z": "a445b80fdd829696",
+        "g": "18c8ecb6cdaab442",
+        "name": "",
+        "topic": "esp32/humidity",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d80dae17.2efaf8",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "e9a6073c06690901",
+                "23068fc0aec1e4df"
+            ]
+        ]
+    },
+    {
+        "id": "45cbf30ff3ae4c84",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "18c8ecb6cdaab442",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "humidity",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 570,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e9a6073c06690901",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "18c8ecb6cdaab442",
+        "name": "adding location",
+        "func": "msg.payload = {\n    location: 'STPLC_01',\n    value: msg.payload\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "45cbf30ff3ae4c84"
+            ]
+        ]
+    },
+    {
+        "id": "23068fc0aec1e4df",
+        "type": "debug",
+        "z": "a445b80fdd829696",
+        "g": "18c8ecb6cdaab442",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d770c8bfe6ebc8c3",
+        "type": "mqtt in",
+        "z": "a445b80fdd829696",
+        "g": "26eeb8e8da63da39",
+        "name": "",
+        "topic": "esp32/detection",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d80dae17.2efaf8",
+        "nl": false,
+        "rap": false,
+        "x": 160,
+        "y": 560,
+        "wires": [
+            [
+                "f916466b08b8a22f",
+                "6f9a568cac0a3e73"
+            ]
+        ]
+    },
+    {
+        "id": "9f7556e0da8f410a",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "26eeb8e8da63da39",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "detection",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 570,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f916466b08b8a22f",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "26eeb8e8da63da39",
+        "name": "adding location",
+        "func": "msg.payload = {\n    location: 'STPLC_01',\n    value: msg.payload\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 560,
+        "wires": [
+            [
+                "9f7556e0da8f410a"
+            ]
+        ]
+    },
+    {
+        "id": "6f9a568cac0a3e73",
+        "type": "debug",
+        "z": "a445b80fdd829696",
+        "g": "26eeb8e8da63da39",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "df09ebed9f31bc4b",
+        "type": "mqtt in",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "name": "",
+        "topic": "esp32/imu",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "d80dae17.2efaf8",
+        "x": 760,
+        "y": 140,
+        "wires": [
+            [
+                "64349ef83f527d59",
+                "0e931ddad168b60a",
+                "38f7be8c94068bea",
+                "3d47ebbe9584a186",
+                "0e5005bc49e917fd"
+            ]
+        ]
+    },
+    {
+        "id": "64349ef83f527d59",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "name": "accelerationX",
+        "func": "msg.payload = msg.payload.acceleration[0]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 140,
+        "wires": [
+            [
+                "c18845d7ed876984"
+            ]
+        ]
+    },
+    {
+        "id": "0e931ddad168b60a",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "name": "gyroscope",
+        "func": "msg.payload = msg.payload.gyroscope\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 320,
+        "wires": [
+            [
+                "c64206b8a3995c14"
+            ]
+        ]
+    },
+    {
+        "id": "c18845d7ed876984",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "influxdb": "7394c556.01e0bc",
+        "name": "influxdb",
+        "measurement": "accelerationx",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c64206b8a3995c14",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "gyroscope",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "0c89dfbd8b477b4f",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "accelerationy",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ab5f3b19854339de",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "accelerationz",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "38f7be8c94068bea",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "name": "accelerationY",
+        "func": "msg.payload = msg.payload.acceleration[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 200,
+        "wires": [
+            [
+                "0c89dfbd8b477b4f"
+            ]
+        ]
+    },
+    {
+        "id": "3d47ebbe9584a186",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "name": "accelerationZ",
+        "func": "msg.payload = msg.payload.acceleration[2]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 260,
+        "wires": [
+            [
+                "ab5f3b19854339de"
+            ]
+        ]
+    },
+    {
+        "id": "889938db2021182b",
+        "type": "mqtt in",
+        "z": "a445b80fdd829696",
+        "g": "4d6d76c20d0c6e7a",
+        "name": "",
+        "topic": "esp32/sound",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "d80dae17.2efaf8",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "db4db57a791460f5",
+                "f513e6aed85c8c04"
+            ]
+        ]
+    },
+    {
+        "id": "0e5005bc49e917fd",
+        "type": "debug",
+        "z": "a445b80fdd829696",
+        "g": "9e4642ac8203ba7d",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "04137e0fde03f98a",
+        "type": "subflow:3e51b262f6b84786",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "env": [],
+        "x": 770,
+        "y": 480,
+        "wires": [
+            [
+                "cc1bd38d165ed7c5"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cd2b6f9aab5ac08e",
+        "type": "subflow:c1439db024be9167",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "x": 770,
+        "y": 540,
+        "wires": [
+            [
+                "17af30d6323a6a4a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e7d11522bfcd3ed2",
+        "type": "subflow:c2ae2734c58cb312",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "x": 770,
+        "y": 600,
+        "wires": [
+            [
+                "0bbdacfa589c2789"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "959da9987cde0b77",
+        "type": "subflow:a67404fb8e157ca0",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "x": 770,
+        "y": 660,
+        "wires": [
+            [
+                "508c755bbea81b0d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6906600920f4e413",
+        "type": "subflow:f2059a74997b27a5",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "x": 770,
+        "y": 720,
+        "wires": [
+            [
+                "babae7b885e47f7a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6dfc6efd4dc015cb",
+        "type": "subflow:74774fbe76e163ac",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "x": 770,
+        "y": 780,
+        "wires": [
+            [
+                "a4e3e23d7edaf4ec"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cf4a91c942f4f367",
+        "type": "subflow:d06774c6e0faac2b",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "x": 770,
+        "y": 840,
+        "wires": [
+            [
+                "2953e33430855587"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "508c755bbea81b0d",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_13",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "babae7b885e47f7a",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_14",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "a4e3e23d7edaf4ec",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_10",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "2953e33430855587",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_01",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "0bbdacfa589c2789",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_12",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "17af30d6323a6a4a",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_11",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "cc1bd38d165ed7c5",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_09",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d78f95a01c2e804d",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "STPLC_08",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "db4db57a791460f5",
+        "type": "function",
+        "z": "a445b80fdd829696",
+        "g": "4d6d76c20d0c6e7a",
+        "name": "adding location",
+        "func": "msg.payload = {\n    location: 'STPLC_01',\n    value: msg.payload\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "ca47443d5d086f0a"
+            ]
+        ]
+    },
+    {
+        "id": "ca47443d5d086f0a",
+        "type": "influxdb out",
+        "z": "a445b80fdd829696",
+        "g": "4d6d76c20d0c6e7a",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "influxdb",
+        "measurement": "sound",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "FestoSensors",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 560,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "b0c34c9b6f1ffeb7",
+        "type": "subflow:e8c85f76fa7fc911",
+        "z": "a445b80fdd829696",
+        "g": "a962e16c7209a6b4",
+        "name": "",
+        "env": [],
+        "x": 770,
+        "y": 420,
+        "wires": [
+            [
+                "d78f95a01c2e804d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f513e6aed85c8c04",
+        "type": "debug",
+        "z": "a445b80fdd829696",
+        "g": "4d6d76c20d0c6e7a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "d80dae17.2efaf8",
+        "type": "mqtt-broker",
+        "name": "test",
+        "broker": "172.20.66.5",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "5ecb4dc3.6713a4",
+        "type": "influxdb",
+        "hostname": "172.20.66.5",
+        "port": "8086",
+        "protocol": "http",
+        "database": "FestoSensors",
+        "name": "smartProdLab",
+        "usetls": false,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "7394c556.01e0bc",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "testSensors",
+        "name": "database",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.8-flux",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "d50d0c9f.31e858",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    }
+]

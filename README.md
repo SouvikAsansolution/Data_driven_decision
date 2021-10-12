@@ -17,6 +17,18 @@
 **Data labels for the Festo AAU Smart production lab**
 ![Festo Data](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Labels_festo.png)
 
+**How to import the code**
+- Install Node-Red on your platform
+- Install the Nodes
+- Go to Import in the top corner 
+
+![Import Node-red](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/NodeRedImport.jpg)
+
+- Inset the code from the **Node-Red Code** named *client_flow.json*
+- Test with the standard code on the **AAU LAB NETWORK**
+- If it works, change the Dashboard and access the data
+- Have some fun with the data :)
+
 **Server Flow**
 ![Server Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Rpi-flow.png)
 

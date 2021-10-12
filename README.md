@@ -14,10 +14,10 @@
 ## Client Flow
 ![Client Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Client-flow.png)
 
-**Data labels for the Festo AAU Smart production lab**
+Data labels for the Festo AAU Smart production lab**
 ![Festo Data](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Labels_festo.png)
 
-**How to import the code**
+## How to import the code
 - Install Node-Red on your platform
 - Install the Nodes
 - Go to Import in the top corner 
@@ -29,7 +29,7 @@
 - If it works, change the Dashboard and access the data
 - Have some fun with the data :)
 
-**Server Flow**
+## Server Flow
 ![Server Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Rpi-flow.png)
 
 

@@ -8,6 +8,8 @@
 
 **- [Using Node-Red as a Client to process and visualize data](Client.md)**
 
+**- [The sensors](Sensors.md)**
+
 **- [Under the hood - the server side](Server.md)**
 
 

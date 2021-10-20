@@ -3,7 +3,7 @@
 **[Go back to Front Page](README.md)**
 
 ## Data labels for the Festo AAU Smart production lab 
-Data labels and sensors with on the FESTO Smart production lab. The data is avalible via OPC UA and the "PLC_Data" block in the client demo (```@@Purple box@@````)
+Data labels and sensors with on the FESTO Smart production lab. The data is avalible via OPC UA and the "PLC_Data" block in the client demo (```diff @@Purple box@@````)
 
 Each PLC is named **STPLC````+##+```**:
 

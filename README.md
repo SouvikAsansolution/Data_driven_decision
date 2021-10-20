@@ -5,7 +5,9 @@
 
 ## Menu
 **- [Getting started/installing Node-red](GettingStared.md)**
+
 **- [Using Node-Red as a Client to process and visualize data](Client.md)**
+
 **- [Under the hood - the server side](Server.md)**
 
 

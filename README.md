@@ -12,6 +12,7 @@
 - node-red-contrib-influxdb [Link](https://flows.nodered.org/node/node-red-contrib-influxdbCancel)
 
 ## Client Flow
+[Client](Client.md)
 ![Client Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Client-flow.png)
 
 **Data labels for the Festo AAU Smart production lab**

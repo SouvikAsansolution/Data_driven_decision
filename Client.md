@@ -1,8 +1,6 @@
-# AAU Learning Factory - Data Driven Decision
+# AAU Learning Factory - Data Driven Decision - Client page
 
-**[Client](README.md)**
-
-![Communincation](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/communication.png)
+**[Go back to Front Page](README.md)**
 
 ## Client Flow
 ![Client Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Client-flow.png)

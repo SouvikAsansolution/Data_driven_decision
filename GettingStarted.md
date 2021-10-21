@@ -27,11 +27,8 @@
 ![Import Node-red](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Import.png)
 
 
-- Inset the code from the **Node-Red Code** named *client_flow.json*
-
-@import "https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Code/client_flow.json"
-
-- Test with the standard code on the **AAU LAB NETWORK**
+- Inset the code from the **Node-Red Code** named [*client_flow.json*](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Code/client_flow.json
+- Test with the standard code on the **AAU LAB NETWORK** *(ssid: smart_production_WIFI, pass: aau smart production lab)*
 - If it works, change the Dashboard and access the data
 - Have some fun with the data :)
 

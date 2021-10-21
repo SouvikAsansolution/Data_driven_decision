@@ -17,29 +17,29 @@ const char* password =  "aau smart production lab"; //SwarmBot
 const char* mqtt_server = "172.20.66.5"; //192.168.1.191
 
 //Constants
-#define CS 16 // Assignment of the CS pin
-#define DHTPIN A7     // what pin we're connected to
-#define IRPIN 33 // Pin for IR dectector
-#define SDPIN A2 // Pin for sound detector read analog
-#define SDPIN2 39 // Pin for sound detector read digital
+#define CS 16 			// Assignment of the CS pin
+#define DHTPIN A7     	// what pin we're connected to
+#define IRPIN 33 		// Pin for IR dectector
+#define SDPIN A2 		// Pin for sound detector read analog
+#define SDPIN2 39 		// Pin for sound detector read digital
 #define DHTTYPE DHT11   // DHT 11  (AM2302)
 #define MSG_BUFFER_SIZE	(50)
 
 //Classes
-DHT dht(DHTPIN, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
-Adafruit_MPU6050 mpu; //// Initialize IMU sensor module mpu6050
-WiFiClient espClient; ////MQTT Initialization
+DHT dht(DHTPIN, DHTTYPE); 		//// Initialize DHT sensor for normal 16mhz Arduino
+Adafruit_MPU6050 mpu; 			//// Initialize IMU sensor module mpu6050
+WiFiClient espClient; 			////MQTT Initialization
 PubSubClient client(espClient); ////MQTT Initialization
 
 //Variables
 byte intensity = 0; //Stores sensor value for the light sensor
-float hum = 0;  //Stores humidity value
-float temp = 0; //Stores temperature value
-int detect = 0; //1 or 0 depending on if something is in the way
-int flag = 1; // Flag is used to check if something moved in front of irsensor and left again
-int status = 0; //Status for linetracker 0 = object has moved, 1 = object detected, 2 = object is still there, 3 = no object detected
-int asound = 0; //Analog value for the sound sensor
-int dsound = 0; //Digital value for the sound sensor
+float hum = 0; 	 	//Stores humidity value
+float temp = 0; 	//Stores temperature value
+int detect = 0;	 	//1 or 0 depending on if something is in the way
+int flag = 1; 		// Flag is used to check if something moved in front of irsensor and left again
+int status = 0; 	//Status for linetracker 0 = object has moved, 1 = object detected, 2 = object is still there, 3 = no object detected
+int asound = 0; 	//Analog value for the sound sensor
+int dsound = 0; 	//Digital value for the sound sensor
 int threshold = 2950; //Microphone threshold/bias
 int unbiased = 0;
 

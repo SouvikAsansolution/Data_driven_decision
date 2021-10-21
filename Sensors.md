@@ -4,6 +4,20 @@
 
 ## Flexible sensors to be placed via the ESP32
 
+### Temperature & Humidity sensor (*Orage & Yellow*)
+![Temperature and Humidity](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/DHT11%20temperature%20and%20humidit.png)
+
+### IMU - acceleration X, Y, Z + Gyroscope rX, rY, rZ (*Blue*)
+![IMU](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/MPU6050%20IMU.png)
+
+### Sound level sensor (*?*)
+![Sound level](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Keyes%20KY003738%20sound%20detector.png)
+
+### Detection sensor (*Green*)
+![Line sensor](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Keyes%20KY0033%20line%20tracker.png)
+
+### Light level sensor (*Red*)
+![Light sensor](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Pmod%20ALS%20light%20detector.png)
 
 ## Data labels for the Festo AAU Smart production lab 
 Data labels and sensors with on the FESTO Smart production lab. The data is avalible via OPC UA and the "PLC_Data" block in the client demo (*Purple box*)

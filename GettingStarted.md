@@ -14,8 +14,13 @@
 
 ## How to import the code
 - Install Node-Red on your platform [Node-Red guide](https://nodered.org/docs/getting-started/local) ([Microsoft](https://www.youtube.com/watch?v=hEpeobDyj8k))([Apple](https://www.youtube.com/watch?v=9cHxLJq30AI))
-- Install the Nodes
 - Start Node-Red and open a browser (http://localhost:1880/)
+- Install the Nodes Requied nodes
+
+![Import Node-red](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/InstallingNodes(2).png)
+![Import Node-red](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/InstallingNodes(1).png)
+
+
 - Go to Import in the top corner 
 
 ![Import Node-red](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/NodeRedImport.jpg)

@@ -2,10 +2,13 @@
 
 **[Go back to Front Page](README.md)**
 
+## Flexible sensors to be placed via the ESP32
+
+
 ## Data labels for the Festo AAU Smart production lab 
 Data labels and sensors with on the FESTO Smart production lab. The data is avalible via OPC UA and the "PLC_Data" block in the client demo (*Purple box*)
 
-Each PLC is named **STPLC**## (read the name ot the PLC on the front of the FESTO station:
+Each PLC is named **STPLC**## (read the name ot the PLC on the front of the FESTO station):
 
 data avalible from the each PLC is:
 

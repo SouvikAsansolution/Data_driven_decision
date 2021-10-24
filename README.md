@@ -14,6 +14,6 @@
 
 
 **Tested Node-red Version**
-- 2.0.6
+- 2.1.1
 
 ![AAU logo](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)

@@ -3,7 +3,7 @@
 **[Go back to Front Page](README.md)**
 
 **Tested Node-red Version**
-- 2.0.6
+- 2.1.1
 
 **Requied Node-red nodes:**
 - node-red-dashboard [Link](https://flows.nodered.org/node/node-red-dashboard)

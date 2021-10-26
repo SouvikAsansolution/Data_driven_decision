@@ -1,0 +1,49 @@
+[
+    {
+        "id": "d0ab8138d71bb2b7",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP08/sound\" WHERE time > now()-10m\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 1380,
+        "wires": [
+            [
+                "fa534f702dd1e2cf"
+            ]
+        ]
+    },
+    {
+        "id": "5ecb4dc3.6713a4",
+        "type": "influxdb",
+        "hostname": "172.20.66.5",
+        "port": "8086",
+        "protocol": "http",
+        "database": "FestoSensors",
+        "name": "smartProdLab",
+        "usetls": false,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "d50d0c9f.31e858",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    }
+]

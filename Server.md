@@ -7,6 +7,11 @@
 ## Server Flow
 ![Server Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Rpi-flow.png)
 
+![Server Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Rpi-flow-esp01.png)
 
+![Server Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Rpi-flow-esp02.png)
+
+![Server Flow](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Rpi-flow-PLC.png)
+Rpi-flow-esp01
 
 ![AAU logo](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)

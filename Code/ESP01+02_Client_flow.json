@@ -1,0 +1,1436 @@
+[
+    {
+        "id": "9ffc01421d445d31",
+        "type": "tab",
+        "label": "ESP01+ESP02 Client",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "13a933761e62816c",
+        "type": "group",
+        "z": "9ffc01421d445d31",
+        "name": "Temperature + Humidity (Even ESP)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f7d5765907d14095",
+            "69e4a997a22c06b3",
+            "a16f386cff758fd5",
+            "e1f621be22c8f23c",
+            "f2b0e7b8fe9c1fa6",
+            "9e08b867dedbfa17",
+            "92e2769226a8e11e",
+            "a30daacdffe6dd67"
+        ],
+        "env": [],
+        "x": 614,
+        "y": 279,
+        "w": 752,
+        "h": 262
+    },
+    {
+        "id": "048069295a766166",
+        "type": "group",
+        "z": "9ffc01421d445d31",
+        "name": "Light sensor (Even ESP)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "fb5d7fbf95432bcd",
+            "16e130f4ebd5192b",
+            "fc824719ea790bb1",
+            "d5c026455f0afb02",
+            "aa39a759d73f1440",
+            "e586d5a4d976a92a",
+            "9949386d85224632"
+        ],
+        "env": [],
+        "x": 614,
+        "y": 39,
+        "w": 752,
+        "h": 222
+    },
+    {
+        "id": "b9f5be20a7d2e81e",
+        "type": "group",
+        "z": "9ffc01421d445d31",
+        "name": "Detection (Odd ESP)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3a1354b7636483e5",
+            "88b4982212bcb813",
+            "deb44ab8128a9040",
+            "3e0fc0e4e5311c8e",
+            "0b0f5ece92dc7a78",
+            "046240d0b947c060",
+            "d40496c8592fc1eb"
+        ],
+        "env": [],
+        "x": 614,
+        "y": 559,
+        "w": 752,
+        "h": 202
+    },
+    {
+        "id": "8f97d3c289c81138",
+        "type": "group",
+        "z": "9ffc01421d445d31",
+        "name": "IMU - Acceleration (Odd ESP)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "e6ce04f726e35f3f",
+            "13e2b9af2ccdb1da",
+            "5148fca4aceaf857",
+            "14399a35dd3dd445",
+            "28dc59f710bd1a84",
+            "e9d0dea1766d0565",
+            "3b039b2c9489eca3",
+            "dc770df4b07d43ee"
+        ],
+        "env": [],
+        "x": 614,
+        "y": 779,
+        "w": 752,
+        "h": 222
+    },
+    {
+        "id": "f81e406b62f3a971",
+        "type": "group",
+        "z": "9ffc01421d445d31",
+        "name": "Sound level (Odd ESP)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "d0ab8138d71bb2b7",
+            "7d83c134e38757c6",
+            "d25b68ce48dddfbf",
+            "fa534f702dd1e2cf",
+            "f91892e2f58d3290",
+            "084149cae234b1e2",
+            "1f8b2025805356eb"
+        ],
+        "env": [],
+        "x": 614,
+        "y": 1259,
+        "w": 752,
+        "h": 222
+    },
+    {
+        "id": "48b817083c6a450a",
+        "type": "group",
+        "z": "9ffc01421d445d31",
+        "name": "IMU - Gyroscope (Odd ESP)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3b07956a88345138",
+            "2689a4a4b6730ad1",
+            "dfed04f396085191",
+            "1d2d16d6c2cf8d02",
+            "e244a41a0c63ab6a",
+            "32719f43b5b7121d",
+            "8d8baa26284f0e55",
+            "87aa3d652509baf6"
+        ],
+        "env": [],
+        "x": 614,
+        "y": 1019,
+        "w": 752,
+        "h": 222
+    },
+    {
+        "id": "fb5d7fbf95432bcd",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "048069295a766166",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP01/light\" WHERE time > now()-10m\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "d5c026455f0afb02"
+            ]
+        ]
+    },
+    {
+        "id": "e77ca1777a2420c5",
+        "type": "inject",
+        "z": "9ffc01421d445d31",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "fb5d7fbf95432bcd",
+                "aa39a759d73f1440",
+                "f7d5765907d14095",
+                "f2b0e7b8fe9c1fa6",
+                "3a1354b7636483e5",
+                "28dc59f710bd1a84",
+                "3b039b2c9489eca3",
+                "f91892e2f58d3290",
+                "d0ab8138d71bb2b7",
+                "e244a41a0c63ab6a",
+                "8d8baa26284f0e55"
+            ]
+        ]
+    },
+    {
+        "id": "16e130f4ebd5192b",
+        "type": "debug",
+        "z": "9ffc01421d445d31",
+        "g": "048069295a766166",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "fc824719ea790bb1",
+        "type": "ui_chart",
+        "z": "9ffc01421d445d31",
+        "g": "048069295a766166",
+        "name": "",
+        "group": "16bae7c66b25cd07",
+        "order": 2,
+        "width": 6,
+        "height": 6,
+        "label": "Light Intensity over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e6ff29",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1230,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d5c026455f0afb02",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "048069295a766166",
+        "name": "compute series data",
+        "func": "var series = [\"light\"];\nvar data = [];\nvar labels = [\"brightness\"];\n\nfor(var i = 0, len = msg.payload.length; i < len; i++){\n  data.push({x: msg.payload[i].time, y: msg.payload[i].value});\n}\n\nmsg.payload = [{\"series\": series, \"data\": [data], \"labels\": labels}];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 160,
+        "wires": [
+            [
+                "fc824719ea790bb1",
+                "16e130f4ebd5192b"
+            ]
+        ]
+    },
+    {
+        "id": "f7d5765907d14095",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP02/temperature\" WHERE time > now()-10m\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 320,
+        "wires": [
+            [
+                "e1f621be22c8f23c"
+            ]
+        ]
+    },
+    {
+        "id": "69e4a997a22c06b3",
+        "type": "debug",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a16f386cff758fd5",
+        "type": "ui_chart",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "name": "",
+        "group": "2795e597db002456",
+        "order": 1,
+        "width": "20",
+        "height": 6,
+        "label": "Temperature over time",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "40",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#b31e1e",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1220,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1f621be22c8f23c",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "name": "compute series data",
+        "func": "var series = [\"temperature\"];\nvar data = [];\nvar labels = [\"Temp in Celsius\"];\n\nfor(var i = 0, len = msg.payload.length; i < len; i++){\n  data.push({x: msg.payload[i].time, y: msg.payload[i].value});\n}\n\nmsg.payload = [{\"series\": series, \"data\": [data], \"labels\": labels}];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 320,
+        "wires": [
+            [
+                "a16f386cff758fd5",
+                "69e4a997a22c06b3"
+            ]
+        ]
+    },
+    {
+        "id": "f2b0e7b8fe9c1fa6",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP02/humidity\" WHERE time > now()-10m\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 440,
+        "wires": [
+            [
+                "a30daacdffe6dd67"
+            ]
+        ]
+    },
+    {
+        "id": "9e08b867dedbfa17",
+        "type": "debug",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload[0].data",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "92e2769226a8e11e",
+        "type": "ui_chart",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "name": "",
+        "group": "afebe426ffd80178",
+        "order": 1,
+        "width": "20",
+        "height": 6,
+        "label": "Humidity over time",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1210,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a30daacdffe6dd67",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "13a933761e62816c",
+        "name": "compute series data",
+        "func": "var series = [\"humidity\"];\nvar data = [];\nvar labels = [\"STPLC_01\"];\n\nfor(var i = 0, len = msg.payload.length; i < len; i++){\n  data.push({x: msg.payload[i].time, y: msg.payload[i].value});\n}\n\nmsg.payload = [{\"series\": series, \"data\": [data], \"labels\": labels}];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 440,
+        "wires": [
+            [
+                "9e08b867dedbfa17",
+                "92e2769226a8e11e"
+            ]
+        ]
+    },
+    {
+        "id": "aa39a759d73f1440",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "048069295a766166",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP01/light\" WHERE time > now()-2s\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 80,
+        "wires": [
+            [
+                "9949386d85224632"
+            ]
+        ]
+    },
+    {
+        "id": "e586d5a4d976a92a",
+        "type": "ui_gauge",
+        "z": "9ffc01421d445d31",
+        "g": "048069295a766166",
+        "name": "light_intensity",
+        "group": "16bae7c66b25cd07",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Light Intensity",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "100",
+        "seg2": "200",
+        "className": "",
+        "x": 1200,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9949386d85224632",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "048069295a766166",
+        "name": "",
+        "func": "msg.payload = [msg.payload[0].value];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 860,
+        "y": 80,
+        "wires": [
+            [
+                "e586d5a4d976a92a"
+            ]
+        ]
+    },
+    {
+        "id": "3a1354b7636483e5",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "b9f5be20a7d2e81e",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP01/detection\" WHERE time > now()-3s\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 620,
+        "wires": [
+            [
+                "deb44ab8128a9040",
+                "d40496c8592fc1eb"
+            ]
+        ]
+    },
+    {
+        "id": "88b4982212bcb813",
+        "type": "ui_led",
+        "z": "9ffc01421d445d31",
+        "g": "b9f5be20a7d2e81e",
+        "order": 1,
+        "group": "380f0c77a3e08553",
+        "width": 0,
+        "height": 0,
+        "label": "Object moved on",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "2",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "3",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1290,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "deb44ab8128a9040",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "b9f5be20a7d2e81e",
+        "name": "",
+        "func": "msg.payload = msg.payload[msg.payload.length-1].value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 620,
+        "wires": [
+            [
+                "88b4982212bcb813",
+                "3e0fc0e4e5311c8e",
+                "0b0f5ece92dc7a78",
+                "046240d0b947c060"
+            ]
+        ]
+    },
+    {
+        "id": "3e0fc0e4e5311c8e",
+        "type": "ui_led",
+        "z": "9ffc01421d445d31",
+        "g": "b9f5be20a7d2e81e",
+        "order": 2,
+        "group": "380f0c77a3e08553",
+        "width": 0,
+        "height": 0,
+        "label": "Object detected",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "2",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "3",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1290,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "0b0f5ece92dc7a78",
+        "type": "ui_led",
+        "z": "9ffc01421d445d31",
+        "g": "b9f5be20a7d2e81e",
+        "order": 3,
+        "group": "380f0c77a3e08553",
+        "width": 0,
+        "height": 0,
+        "label": "Object still here",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "2",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "3",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1290,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "046240d0b947c060",
+        "type": "ui_led",
+        "z": "9ffc01421d445d31",
+        "g": "b9f5be20a7d2e81e",
+        "order": 4,
+        "group": "380f0c77a3e08553",
+        "width": 0,
+        "height": 0,
+        "label": "No object",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "2",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "3",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1290,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "e6ce04f726e35f3f",
+        "type": "ui_text",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "group": "1d629ac35bc9d275",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "X-axis",
+        "format": "{{msg.payload['x']}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1290,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "13e2b9af2ccdb1da",
+        "type": "ui_text",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "group": "1d629ac35bc9d275",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Y-axis",
+        "format": "{{msg.payload['y']}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1290,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "5148fca4aceaf857",
+        "type": "ui_text",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "group": "1d629ac35bc9d275",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Z-axis",
+        "format": "{{msg.payload['z']}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1290,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "14399a35dd3dd445",
+        "type": "ui_chart",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "name": "",
+        "group": "1d629ac35bc9d275",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "IMU",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1290,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28dc59f710bd1a84",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP01/acceleration\" WHERE time > now()-3s\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 820,
+        "wires": [
+            [
+                "e9d0dea1766d0565"
+            ]
+        ]
+    },
+    {
+        "id": "e9d0dea1766d0565",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "name": "",
+        "func": "msg.payload = msg.payload[msg.payload.length-1]\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 860,
+        "y": 820,
+        "wires": [
+            [
+                "e6ce04f726e35f3f",
+                "13e2b9af2ccdb1da",
+                "5148fca4aceaf857"
+            ]
+        ]
+    },
+    {
+        "id": "3b039b2c9489eca3",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP01/acceleration\" WHERE time > now()-10m\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 880,
+        "wires": [
+            [
+                "dc770df4b07d43ee"
+            ]
+        ]
+    },
+    {
+        "id": "dc770df4b07d43ee",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "8f97d3c289c81138",
+        "name": "",
+        "func": "var series = [\"IMU\"];\nvar msg1 = [];\nvar msg2 = [];\nvar msg3 = [];\nvar labels = [\"X-axis\", \"Y-axis\", \"Z-axis\"];\n\nfor(var i = 0, len = msg.payload.length; i < len; i++){\n  msg1.push({x: msg.payload[i].time, y: msg.payload[i].x});\n  msg2.push({x: msg.payload[i].time, y: msg.payload[i].y});\n  msg3.push({x: msg.payload[i].time, y: msg.payload[i].z});\n}\n\nmsg.payload = [{\"series\": series, \"data\": [msg1, msg2, msg3], \"labels\": labels}];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 860,
+        "y": 880,
+        "wires": [
+            [
+                "14399a35dd3dd445"
+            ]
+        ]
+    },
+    {
+        "id": "d0ab8138d71bb2b7",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP02/sound\" WHERE time > now()-10m\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 1380,
+        "wires": [
+            [
+                "fa534f702dd1e2cf"
+            ]
+        ]
+    },
+    {
+        "id": "7d83c134e38757c6",
+        "type": "debug",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "d25b68ce48dddfbf",
+        "type": "ui_chart",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "name": "",
+        "group": "49de1e9f85a6e4c8",
+        "order": 2,
+        "width": 6,
+        "height": 6,
+        "label": "Sound level over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e6ff29",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1240,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa534f702dd1e2cf",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "name": "compute series data",
+        "func": "var series = [\"sound\"];\nvar data = [];\nvar labels = [\"level\"];\n\nfor(var i = 0, len = msg.payload.length; i < len; i++){\n  data.push({x: msg.payload[i].time, y: msg.payload[i].value});\n}\n\nmsg.payload = [{\"series\": series, \"data\": [data], \"labels\": labels}];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1380,
+        "wires": [
+            [
+                "d25b68ce48dddfbf",
+                "7d83c134e38757c6"
+            ]
+        ]
+    },
+    {
+        "id": "f91892e2f58d3290",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP02/sound\" WHERE time > now()-2s\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 1300,
+        "wires": [
+            [
+                "1f8b2025805356eb"
+            ]
+        ]
+    },
+    {
+        "id": "084149cae234b1e2",
+        "type": "ui_gauge",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "name": "sound_level",
+        "group": "49de1e9f85a6e4c8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sound level",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "100",
+        "seg2": "200",
+        "className": "",
+        "x": 1250,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "3b07956a88345138",
+        "type": "ui_text",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "group": "08e8fb48c4eb703c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "X-axis - Gyro",
+        "format": "{{msg.payload['x']}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1270,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "2689a4a4b6730ad1",
+        "type": "ui_text",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "group": "08e8fb48c4eb703c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Y-axis - Gyro",
+        "format": "{{msg.payload['y']}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1270,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "dfed04f396085191",
+        "type": "ui_text",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "group": "08e8fb48c4eb703c",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Z-axis - Gyro",
+        "format": "{{msg.payload['z']}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1270,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "1d2d16d6c2cf8d02",
+        "type": "ui_chart",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "name": "",
+        "group": "08e8fb48c4eb703c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "IMU - Gyro",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1270,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e244a41a0c63ab6a",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP01/gyroscope\" WHERE time > now()-3s\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 1060,
+        "wires": [
+            [
+                "32719f43b5b7121d"
+            ]
+        ]
+    },
+    {
+        "id": "32719f43b5b7121d",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "name": "",
+        "func": "msg.payload = msg.payload[msg.payload.length-1]\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 860,
+        "y": 1060,
+        "wires": [
+            [
+                "3b07956a88345138",
+                "2689a4a4b6730ad1",
+                "dfed04f396085191"
+            ]
+        ]
+    },
+    {
+        "id": "8d8baa26284f0e55",
+        "type": "influxdb in",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "influxdb": "5ecb4dc3.6713a4",
+        "name": "Influxdb",
+        "query": "SELECT * FROM \"ESP01/gyroscope\" WHERE time > now()-10m\n",
+        "rawOutput": false,
+        "precision": "ms",
+        "retentionPolicy": "",
+        "org": "my-org",
+        "x": 700,
+        "y": 1120,
+        "wires": [
+            [
+                "87aa3d652509baf6"
+            ]
+        ]
+    },
+    {
+        "id": "87aa3d652509baf6",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "48b817083c6a450a",
+        "name": "",
+        "func": "var series = [\"IMU\"];\nvar msg1 = [];\nvar msg2 = [];\nvar msg3 = [];\nvar labels = [\"X-axis\", \"Y-axis\", \"Z-axis\"];\n\nfor(var i = 0, len = msg.payload.length; i < len; i++){\n  msg1.push({x: msg.payload[i].time, y: msg.payload[i].x});\n  msg2.push({x: msg.payload[i].time, y: msg.payload[i].y});\n  msg3.push({x: msg.payload[i].time, y: msg.payload[i].z});\n}\n\nmsg.payload = [{\"series\": series, \"data\": [msg1, msg2, msg3], \"labels\": labels}];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 860,
+        "y": 1120,
+        "wires": [
+            [
+                "1d2d16d6c2cf8d02"
+            ]
+        ]
+    },
+    {
+        "id": "1f8b2025805356eb",
+        "type": "function",
+        "z": "9ffc01421d445d31",
+        "g": "f81e406b62f3a971",
+        "name": "",
+        "func": "msg.payload = [msg.payload[0].value];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1300,
+        "wires": [
+            [
+                "084149cae234b1e2"
+            ]
+        ]
+    },
+    {
+        "id": "d40496c8592fc1eb",
+        "type": "debug",
+        "z": "9ffc01421d445d31",
+        "g": "b9f5be20a7d2e81e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "5ecb4dc3.6713a4",
+        "type": "influxdb",
+        "hostname": "172.20.66.5",
+        "port": "8086",
+        "protocol": "http",
+        "database": "FestoSensors",
+        "name": "smartProdLab",
+        "usetls": false,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "16bae7c66b25cd07",
+        "type": "ui_group",
+        "name": "Light",
+        "tab": "c16499fafbfae8c9",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2795e597db002456",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "c16499fafbfae8c9",
+        "order": 2,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "afebe426ffd80178",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "c16499fafbfae8c9",
+        "order": 3,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "380f0c77a3e08553",
+        "type": "ui_group",
+        "name": "Detection",
+        "tab": "c16499fafbfae8c9",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1d629ac35bc9d275",
+        "type": "ui_group",
+        "name": "IMU Acceleration",
+        "tab": "c16499fafbfae8c9",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "49de1e9f85a6e4c8",
+        "type": "ui_group",
+        "name": "Sound",
+        "tab": "c16499fafbfae8c9",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "08e8fb48c4eb703c",
+        "type": "ui_group",
+        "name": "IMU Gyroscope",
+        "tab": "c16499fafbfae8c9",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d50d0c9f.31e858",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    },
+    {
+        "id": "c16499fafbfae8c9",
+        "type": "ui_tab",
+        "name": "Festo Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

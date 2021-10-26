@@ -42,6 +42,7 @@ Changing the sensitivity of the sensor can be done on the potmeter (blue box wit
 ### Detection sensor
 
 ![Line sensor](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Keyes%20KY0033%20line%20tracker.png)
+
 A more correct name would be a IR Line tracking sensor.
 The sensor has IR light emitter and detector. The sensor returns the status of the IR light reflected from a surface as ON or OFF. The on board LED shows the status of the sensor. You need to calibrate the sensor first, basically block the sensor and adjust the pot until the led goes on. Then remove the object and the on board LED should go off.
 
@@ -69,8 +70,6 @@ data avalible from the each PLC is:
 - State of Pneumaic stopper (O/1)
 
 ![Festo Data](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Labels_festo.png)
-
-![AAU logo](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)
 
 ## Wiring Diagrams for ESPs
 
@@ -106,3 +105,5 @@ A table with short description of each sensor pin is shown below. The power and 
 |-------------|-------------|-----------------|
 | A0          | Purple      | DHT11 sensor pin|
 | D5          | White       | Analog sound pin|
+
+![AAU logo](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)

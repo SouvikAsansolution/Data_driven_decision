@@ -38,6 +38,7 @@ Changing the sensitivity of the sensor can be done on the potmeter (blue box wit
 
 ### Detection sensor
 ![Line sensor](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Keyes%20KY0033%20line%20tracker.png)
+
 A more correct name would be a IR Line tracking sensor. 
 The sensor has IR light emitter and detector. The sensor returns the status of the IR light reflected from a surface as ON or OFF. The on board LED shows the status of the sensor. You need to calibrate the sensor first, basically block the sensor and adjust the pot until the led goes on. Then remove the object and the on board LED should go off.
 

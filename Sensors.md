@@ -82,7 +82,7 @@ This is the diagram for wiring the odd numbered ESP's sensors to their respectiv
 
 ![Odd ESP Wiring](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/OddESPDiagram.png)
 
-A table with short description of each sensor pin is shown below. The power and ground pins/wires(red & black ) have been omitted from this table.
+A table with short description of each sensor pin is shown below. The power and ground pins/wires(red & black) have been omitted from this table.
 
 |Pin number   | Color       | Description     |
 |-------------|-------------|-----------------|

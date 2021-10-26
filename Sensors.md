@@ -66,9 +66,6 @@ data avalible from the each PLC is:
 ![Festo Data](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/Labels_festo.png)
 
 
-
-![AAU logo](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)
-
 ## Wiring Diagrams for ESPs
 This section contains the wiring diagrams for each of the ESPs that have been handed out to the groups. The Odd numbered EPSs three sensors attached namely: Light level sensor, Detection sensor and IMU. The even numbered ESPs are equipped with two sensors these are: Temperature & Humidity sensor and Sound level sensor.
 
@@ -101,3 +98,8 @@ A table with short description of each sensor pin is shown below. The power and 
 |-------------|-------------|-----------------|
 | A0          | Purple      | DHT11 sensor pin|
 | D5          | White       | Analog sound pin|
+
+
+
+
+![AAU logo](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)

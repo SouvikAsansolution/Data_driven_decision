@@ -116,4 +116,4 @@ These are the ESPs belonging to each group. However data can be shared between g
 | A          | 1 & 2        |
 | 1          | 7 & 4        |
 | I          | 5 & 6        |
-| $\alpha$   | 3 & 8        |
+| α          | 3 & 8        |

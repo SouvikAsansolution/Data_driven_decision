@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "..\\210712-201637-arduino-blink"
+		},
+		{
+			"name": "210715-145213-arduino-blink",
+			"path": "..\\210715-145213-arduino-blink"
+		},
+		{
+			"name": "210715-150447-arduino-blink",
+			"path": "..\\210715-150447-arduino-blink"
+		},
+		{
+			"name": "ESP32_test",
+			"path": "..\\ESP32_test"
+		},
+		{
+			"name": "dht22",
+			"path": "..\\dht22"
+		},
+		{
+			"name": "mqtt_test",
+			"path": "..\\mqtt_test"
+		},
+		{
+			"name": "ESP2",
+			"path": "..\\ESP2"
+		},
+		{
+			"name": "festo_iot",
+			"path": "..\\festo_iot"
+		},
+		{
+			"name": "festo_iot_even",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

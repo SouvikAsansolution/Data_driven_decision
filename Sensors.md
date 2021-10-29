@@ -106,4 +106,16 @@ A table with short description of each sensor pin is shown below. The power and 
 | A0          | Purple      | DHT11 sensor pin|
 | D5          | White       | Analog sound pin|
 
+
+
+### ESP distribution between groups
+
+These are the ESPs belonging to each group. However data can be shared between groups, so it is possible to use other groups data as well.
+|Group number   | ESP number|
+|-------------|-------------|
+| A          | 1 & 2        |
+| 1          | 7 & 4        |
+| I          | 5 & 6        |
+| α          | 3 & 8        |
+
 ![AAU logo](https://github.com/glinvad/AAU_Learning_Factory_-_Data_driven_decision/blob/main/Pictures/AAUlogo.png)
